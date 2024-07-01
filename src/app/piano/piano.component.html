@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <div class="controls">
+    Hold space for sustain
+    <button>
+      Sustain {{ !sustain ? 'Disabled' : 'Enabled' }}
+    </button>
+  </div>
+  <br><br>
+  <div style="display: flex;">
+    <div class="smallPiano" style="margin-right: 20px;">
+      <button class="smallkey white" (mousedown)="playSound('C'+ num)" (mouseup)="stopSound('C'+ num)" id="Cbut-{{num}}">C</button>
+      <button class="smallkey black" (mousedown)="playSound('Cs' + num)" (mouseup)="stopSound('Cs'+ num)" id="Csbut-{{num}}">C#</button>
+      <button class="smallkey white" (mousedown)="playSound('D'+ num)" (mouseup)="stopSound('D'+ num)" id="Dbut-{{num}}">D</button>
+      <button class="smallkey black" (mousedown)="playSound('Ds'+ num)" (mouseup)="stopSound('Ds'+ num)" id="Dsbut-{{num}}">D#</button>
+      <button class="smallkey white" (mousedown)="playSound('E'+ num)" (mouseup)="stopSound('E'+ num)" id="Ebut-{{num}}">E</button>
+      <button class="smallkey white" (mousedown)="playSound('F'+ num)" (mouseup)="stopSound('F'+ num)" id="Fbut-{{num}}">F</button>
+      <button class="smallkey black" (mousedown)="playSound('Fs'+ num)" (mouseup)="stopSound('Fs'+ num)" id="Fsbut-{{num}}">F#</button>
+      <button class="smallkey white" (mousedown)="playSound('G'+ num)" (mouseup)="stopSound('G'+ num)" id="Gbut-{{num}}">G</button>
+      <button class="smallkey black" (mousedown)="playSound('Gs'+ num)" (mouseup)="stopSound('Gs'+ num)" id="Gsbut-{{num}}">G#</button>
+      <button class="smallkey white" (mousedown)="playSound('A'+ num)" (mouseup)="stopSound('A'+ num)" id="Abut-{{num}}">A</button>
+      <button class="smallkey black" (mousedown)="playSound('As'+ num)" (mouseup)="stopSound('As'+ num)" id="Asbut-{{num}}">A#</button>
+      <button class="smallkey white" (mousedown)="playSound('B'+ num)" (mouseup)="stopSound('B'+ num)" id="Bbut-{{num}}">B</button>
+    </div>
+    <div class="smallPiano">
+      <button class="smallkey white" (mousedown)="playSound('C'+ num)" (mouseup)="stopSound('C'+ num)" id="Cbut-{{num}}">C</button>
+      <button class="smallkey black" (mousedown)="playSound('Cs' + num)" (mouseup)="stopSound('Cs'+ num)" id="Csbut-{{num}}">C#</button>
+      <button class="smallkey white" (mousedown)="playSound('D'+ num)" (mouseup)="stopSound('D'+ num)" id="Dbut-{{num}}">D</button>
+      <button class="smallkey black" (mousedown)="playSound('Ds'+ num)" (mouseup)="stopSound('Ds'+ num)" id="Dsbut-{{num}}">D#</button>
+      <button class="smallkey white" (mousedown)="playSound('E'+ num)" (mouseup)="stopSound('E'+ num)" id="Ebut-{{num}}">E</button>
+      <button class="smallkey white" (mousedown)="playSound('F'+ num)" (mouseup)="stopSound('F'+ num)" id="Fbut-{{num}}">F</button>
+      <button class="smallkey black" (mousedown)="playSound('Fs'+ num)" (mouseup)="stopSound('Fs'+ num)" id="Fsbut-{{num}}">F#</button>
+      <button class="smallkey white" (mousedown)="playSound('G'+ num)" (mouseup)="stopSound('G'+ num)" id="Gbut-{{num}}">G</button>
+      <button class="smallkey black" (mousedown)="playSound('Gs'+ num)" (mouseup)="stopSound('Gs'+ num)" id="Gsbut-{{num}}">G#</button>
+      <button class="smallkey white" (mousedown)="playSound('A'+ num)" (mouseup)="stopSound('A'+ num)" id="Abut-{{num}}">A</button>
+      <button class="smallkey black" (mousedown)="playSound('As'+ num)" (mouseup)="stopSound('As'+ num)" id="Asbut-{{num}}">A#</button>
+      <button class="smallkey white" (mousedown)="playSound('B'+ num)" (mouseup)="stopSound('B'+ num)" id="Bbut-{{num}}">B</button>
+    </div>
+  </div>
+  <br>
+  <div style="display: flex; width: 200px; height: 25px;justify-content: space-evenly; align-items: center;">
+    <button (click)="changeOctave('down')"> &lt;-- </button>
+    <p>{{num}}</p>
+    <button (click)="changeOctave('up')"> --&gt;</button>
+  </div>
+  <br>
+  <div style="border:.5px solid black; display: flex; flex-direction: row; width: 70vw"></div>
+  <br><br>
+  <div class="piano">
+    <div *ngFor="let num of numbers" class="piano">
+      <button class="key white" (mousedown)="playSound('C' + num)" (mouseup)="stopSound('C' + num)" id="Cbut-{{num}}"
+        style="display: flex; align-items: end;">{{num}}</button>
+      <button class="key black" (mousedown)="playSound('Cs' + num)" (mouseup)="stopSound('Cs' + num)" id="Csbut-{{num}}"></button>
+      <button class="key white" (mousedown)="playSound('D' + num)" (mouseup)="stopSound('D' + num)" id="Dbut-{{num}}"></button>
+      <button class="key black" (mousedown)="playSound('Ds' + num)" (mouseup)="stopSound('Ds' + num)" id="Dsbut-{{num}}"></button>
+      <button class="key white" (mousedown)="playSound('E' + num)" (mouseup)="stopSound('E' + num)" id="Ebut-{{num}}"></button>
+      <button class="key white" (mousedown)="playSound('F' + num)" (mouseup)="stopSound('F' + num)" id="Fbut-{{num}}"></button>
+      <button class="key black" (mousedown)="playSound('Fs' + num)" (mouseup)="stopSound('Fs' + num)" id="Fsbut-{{num}}"></button>
+      <button class="key white" (mousedown)="playSound('G' + num)" (mouseup)="stopSound('G' + num)" id="Gbut-{{num}}"></button>
+      <button class="key black" (mousedown)="playSound('Gs' + num)" (mouseup)="stopSound('Gs' + num)" id="Gsbut-{{num}}"></button>
+      <button class="key white" (mousedown)="playSound('A' + num)" (mouseup)="stopSound('A' + num)" id="Abut-{{num}}"></button>
+      <button class="key black" (mousedown)="playSound('As' + num)" (mouseup)="stopSound('As' + num)" id="Asbut-{{num}}"></button>
+      <button class="key white" (mousedown)="playSound('B' + num)" (mouseup)="stopSound('B' + num)" id="Bbut-{{num}}"></button>
+    </div>
+  </div> 
+</body>
+</html>
